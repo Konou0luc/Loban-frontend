@@ -1,0 +1,1 @@
+export const BACKGROUND_LIST_POLL_MS = 2500;
