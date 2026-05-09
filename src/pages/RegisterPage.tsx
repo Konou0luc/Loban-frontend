@@ -49,7 +49,7 @@ export function RegisterPage() {
   return (
     <AuthSplitLayout
       imageSrc="/landing/auth-register.jpg"
-      imageAlt="Quai de chargement : livraison et transport de marchandises."
+      imageAlt="Poids lourds sur route : convois et transport de marchandises."
       kicker="Rejoindre le réseau"
       title="Créez votre profil et entrez dans les corridors où les prix se comparent."
       description="Indiquez si vous expédiez ou si vous transportez — l’essentiel est d’avoir des offres lisibles pour tout le monde."

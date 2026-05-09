@@ -13,10 +13,10 @@ export const landingImages = {
   faceDriver: `https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?${q}&w=800&q=85`,
   /** Section couverture */
   coverage: `https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?${q}&w=1200&q=85`,
-  /** Parcours client : coordination */
-  parcoursClient: `https://images.unsplash.com/photo-1522071820081-009f0129c71c?${q}&w=900&q=85`,
-  /** Parcours transporteur : quai & chargement */
-  parcoursTransporter: `https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?${q}&w=900&q=85`,
+  /** Parcours client — visuel local (remplace ancienne photo bureau Unsplash) */
+  parcoursClient: '/landing/pexels-amaurymic-18189671.jpg',
+  /** Parcours transporteur — van / ligne logistique (Pexels kwakugriffn) */
+  parcoursTransporter: '/landing/pexels-kwakugriffn-14346809.jpg',
 } as const;
 
 export const landingImageAlts = {
@@ -28,6 +28,6 @@ export const landingImageAlts = {
   faceOps: 'Poignée de main entre partenaires après accord.',
   faceDriver: 'Conducteur au volant, livraison et route.',
   coverage: 'Carte et planification d’itinéraires pour acheminer des envois.',
-  parcoursClient: 'Équipe en réunion pour planifier expéditions et priorités.',
-  parcoursTransporter: 'Chargement sur quai : préparation d’une livraison et départ vers la destination.',
+  parcoursClient: 'Pilotage d’expédition : coordination et planification côté client.',
+  parcoursTransporter: 'Van sur route urbaine : transport et dernier kilomètre.',
 } as const;

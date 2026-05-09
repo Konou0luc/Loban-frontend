@@ -5,7 +5,6 @@ import {
   ArrowRight,
   ChartLineUp,
   ClockCounterClockwise,
-  GlobeHemisphereWest,
   Handshake,
   Lightning,
   MapPinLine,
@@ -39,7 +38,7 @@ function StoryCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.65, ease }}
-      className="group overflow-hidden rounded-[2rem] border border-zinc-200/75 bg-white/90 dark:border-white/[0.06] dark:bg-white/[0.03]"
+      className="group overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-[0_1px_0_rgba(0,0,0,0.04)] dark:border-white/[0.07] dark:bg-zinc-950/50 dark:shadow-none"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
@@ -47,35 +46,35 @@ function StoryCard({
           alt={alt}
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
+          className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.02]"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
         <span
-          className={`absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white ${accentClass}`}
+          className={`absolute left-3 top-3 rounded-md px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-sm ${accentClass}`}
         >
           {kicker}
         </span>
       </div>
-      <div className="border-t border-zinc-200/70 p-6 dark:border-white/[0.06]">
-        <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-zinc-900 dark:text-white">
+      <div className="border-t border-zinc-100 p-6 dark:border-white/[0.06]">
+        <h3 className="font-[family-name:var(--font-display)] text-base font-semibold tracking-tight text-zinc-900 dark:text-white">
           {title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-500">{body}</p>
+        <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{body}</p>
       </div>
     </motion.article>
   );
 }
 
 const fadeUp = {
-  initial: { opacity: 0, y: 28, filter: 'blur(6px)' },
+  initial: { opacity: 0, y: 20, filter: 'blur(4px)' },
   whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
   viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.75, ease },
+  transition: { duration: 0.65, ease },
 };
 
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.22em] text-zinc-600 dark:text-zinc-500">
+    <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-500">
       {children}
     </p>
   );
@@ -112,26 +111,26 @@ export function LandingPage() {
     '!border-white/25 !bg-white/10 !text-white hover:!border-white/40 [&_span]:!text-white/95';
 
   return (
-    <div className="relative overflow-hidden bg-zinc-50 text-zinc-900 dark:bg-[#050505] dark:text-zinc-100">
+    <div className="relative overflow-hidden bg-[#fafafa] text-zinc-900 dark:bg-[#030303] dark:text-zinc-100">
       <div
-        className="pointer-events-none fixed inset-0 -z-10 opacity-[0.18] dark:opacity-[0.35]"
+        className="pointer-events-none fixed inset-0 -z-10 opacity-[0.09] dark:opacity-[0.2]"
         style={{
           background:
-            'radial-gradient(ellipse 80% 50% at 20% 10%, rgba(5,150,105,0.18), transparent), radial-gradient(ellipse 60% 40% at 85% 30%, rgba(212,165,116,0.12), transparent)',
+            'radial-gradient(ellipse 70% 45% at 15% 0%, rgba(5,150,105,0.14), transparent), radial-gradient(ellipse 55% 35% at 90% 20%, rgba(100,116,139,0.08), transparent)',
         }}
       />
 
       {/* Nav — fixe, style dynamique selon scroll */}
       <header
-        className={`fixed left-0 right-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-300 ${
+        className={`fixed left-0 right-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ${
           headerSolid
-            ? 'border-zinc-200/90 bg-white/90 backdrop-blur-xl dark:border-white/[0.08] dark:bg-[#0a0a0a]/92'
-            : 'border-white/10 bg-black/35 backdrop-blur-md'
+            ? 'border-zinc-200/80 bg-white/[0.92] shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-xl dark:border-white/[0.06] dark:bg-[#0a0a0a]/95 dark:shadow-[0_1px_0_rgba(255,255,255,0.04)]'
+            : 'border-white/[0.08] bg-black/40 backdrop-blur-xl'
         }`}
       >
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-3.5">
           <span
-            className={`font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight ${
+            className={`font-[family-name:var(--font-display)] text-[15px] font-semibold tracking-tight ${
               headerSolid ? 'text-zinc-900 dark:text-white' : 'text-white'
             }`}
           >
@@ -149,10 +148,10 @@ export function LandingPage() {
         </div>
       </header>
 
-      {/* Hero — vidéo plein cadre + overlay */}
+      {/* Hero — split éditorial + carte « double bézel » (vidéo conservée, lisibilité à gauche, air à droite) */}
       <section
         ref={heroRef}
-        className="relative isolate min-h-[min(100dvh,960px)] overflow-hidden"
+        className="relative isolate min-h-[min(100dvh,920px)] overflow-hidden bg-[#050505]"
       >
         <video
           className="absolute inset-0 z-0 h-full w-full object-cover"
@@ -165,90 +164,116 @@ export function LandingPage() {
         >
           <source src="/landing/hero-bg.mp4" type="video/mp4" />
         </video>
+        {/* Lumière ambiante emerald + lecture gauche → droite plus claire */}
         <div
-          className="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-black/45 to-emerald-950/40"
+          className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_55%_45%_at_15%_85%,rgba(5,150,105,0.14),transparent_62%)]"
           aria-hidden
         />
-        <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-6 pb-24 pt-28 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-12 md:pb-32 md:pt-36">
-          <div>
+        <div
+          className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0a0a0a]/[0.94] via-[#050505]/72 to-black/25"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-transparent to-black/35"
+          aria-hidden
+        />
+
+        <div className="relative z-10 mx-auto grid min-h-[min(100dvh,920px)] w-full max-w-[1400px] grid-cols-1 gap-y-14 px-6 pb-20 pt-28 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:items-center lg:gap-x-10 lg:gap-y-0 lg:px-10 lg:pb-28 lg:pt-24 xl:px-14">
+          {/* Colonne typographique — alignée début, pas centrée */}
+          <div className="flex max-w-xl flex-col lg:max-w-none xl:pr-4">
             <motion.div
-              initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.85, ease }}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, ease: [0.32, 0.72, 0, 1] }}
             >
-              <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm">
-                <GlobeHemisphereWest weight="light" className="h-4 w-4 text-emerald-300" />
-                Marketplace logistique
+              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-emerald-400/90">
+                Loban · mise en relation
               </p>
-              <h1 className="font-[family-name:var(--font-display)] text-[clamp(2.25rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-tighter text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
-                Transporteurs et clients,
-                <span className="block bg-gradient-to-r from-emerald-300 via-emerald-400 to-[#d4a574] bg-clip-text text-transparent">
-                  reliés par Loban
-                </span>
+              <h1 className="mt-7 max-w-[17ch] text-balance font-[family-name:var(--font-display)] text-[clamp(2.125rem,5.8vw,4rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-white">
+                Un trajet, un prix affiché, zéro approximation.
               </h1>
-              <p className="mt-8 max-w-[52ch] text-base leading-relaxed text-white/80">
-                Publiez vos besoins, comparez les offres en temps réel et suivez chaque livraison dans une interface sobre,
-                rapide et pensée pour le terrain.
+              <p className="mt-8 max-w-[40ch] text-[15px] leading-[1.75] text-white/68">
+                Vous posez votre besoin ou votre tarif : votre interlocuteur voit exactement la même chose. Vous comparez,
+                vous choisissez, vous suivez la livraison sans reconstruire l’historique dans vos messages.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.8, ease }}
-              className="mt-12 flex flex-wrap items-center gap-4"
+              transition={{ delay: 0.1, duration: 0.65, ease: [0.32, 0.72, 0, 1] }}
+              className="mt-11 flex flex-wrap items-center gap-4"
             >
               <Link
                 to="/register"
-                className="group inline-flex items-center gap-2 rounded-full bg-emerald-600 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_48px_rgba(5,150,105,0.45)] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-emerald-500 active:scale-[0.98]"
+                className="group inline-flex items-center gap-3 rounded-full bg-emerald-600 py-3 pl-7 pr-2 text-sm font-semibold text-white shadow-[0_12px_40px_-8px_rgba(5,150,105,0.45)] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-emerald-500 active:scale-[0.98]"
               >
-                Démarrer
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black/15 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px">
+                Ouvrir mon espace
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black/20 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px">
                   <ArrowRight weight="light" className="h-4 w-4" />
                 </span>
               </Link>
               <Link
                 to="/login"
-                className="rounded-full border border-white/35 bg-white/5 px-6 py-3.5 text-sm font-medium text-white/95 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/50 hover:bg-white/12"
+                className="rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/30 hover:bg-white/[0.07]"
               >
-                Voir l&apos;espace connecté
+                J’ai déjà un compte
               </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.22, duration: 0.55 }}
+              className="mt-14 flex flex-wrap gap-x-10 gap-y-3 border-t border-white/[0.09] pt-8 font-mono text-[10px] uppercase tracking-[0.16em] text-white/38"
+            >
+              <span>
+                <span className="text-white/55">01</span> Offres comparables
+              </span>
+              <span>
+                <span className="text-white/55">02</span> Rôles séparés, données à vous
+              </span>
+              <span>
+                <span className="text-white/55">03</span> Ouest africain
+              </span>
             </motion.div>
           </div>
 
+          {/* Panneau « double bézel » — profondeur, léger décalage (desktop uniquement) */}
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.9, ease }}
-            className="relative max-md:mt-4"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.14, duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            className="relative flex justify-center lg:justify-end"
           >
-            <figure className="m-0">
-              <div className="overflow-hidden rounded-2xl ring-1 ring-white/30 shadow-[0_28px_70px_rgba(0,0,0,0.5)] sm:rounded-[1.75rem]">
-                <img
-                  src="/landing/hero-side.jpg"
-                  alt="Équipe au travail dans un entrepôt : préparation de commandes et flux marchandises."
-                  width={900}
-                  height={1200}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[3/4] max-h-[min(520px,70vh)] w-full object-cover sm:max-h-[min(560px,74vh)]"
-                />
-              </div>
-              <figcaption className="mt-8 space-y-5">
-                <p className="font-[family-name:var(--font-display)] text-[clamp(1.125rem,2.6vw,1.4rem)] font-medium leading-snug tracking-tight text-white">
-                  « Un prix qu&apos;on comprend tout de suite — avant même de charger le camion. »
+            <div className="pointer-events-none absolute -right-6 -top-10 h-44 w-44 rounded-full bg-emerald-500/[0.12] blur-3xl lg:right-0" aria-hidden />
+            <div className="relative w-full max-w-md rounded-[2rem] p-2 ring-1 ring-white/[0.09] max-lg:translate-y-0 max-lg:rotate-0 lg:-translate-y-3 lg:rotate-[-0.6deg]">
+              <div className="rounded-[calc(2rem-10px)] border border-white/[0.07] bg-[#0a0a0a]/[0.92] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] md:p-9">
+                <p className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-emerald-500/85">
+                  Ce qui change pour vous
                 </p>
-                <p className="max-w-md text-sm leading-relaxed text-white/72">
-                  Sur le terrain, la confiance se joue sur des offres lisibles par tout le monde. Loban est pensé pour ça :
-                  moins de flou commercial, plus de clarté partagée.
-                </p>
-                <div className="flex flex-wrap gap-x-8 gap-y-2 border-t border-white/20 pt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">
-                  <span>Expéditeurs</span>
-                  <span>Transporteurs</span>
-                  <span>Ouest africain</span>
+                <ul className="mt-7 space-y-5 border-l border-emerald-500/35 pl-5 text-[14px] leading-snug text-white/78">
+                  <li className="relative">
+                    <span className="absolute -left-5 top-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.45)]" />
+                    Même écran pour celui qui envoie et celui qui roule : le prix n’est pas interprété deux fois.
+                  </li>
+                  <li className="relative">
+                    <span className="absolute -left-5 top-2 h-1.5 w-1.5 rounded-full bg-white/25" />
+                    Le trajet avance dans l’app : vous savez où ça en est sans relancer au téléphone.
+                  </li>
+                  <li className="relative">
+                    <span className="absolute -left-5 top-2 h-1.5 w-1.5 rounded-full bg-white/25" />
+                    La notation après livraison : une trace pour la prochaine mission.
+                  </li>
+                </ul>
+                <div className="mt-9 flex items-center gap-4 border-t border-white/[0.07] pt-7">
+                  <div className="h-px flex-1 bg-gradient-to-r from-emerald-500/40 to-transparent" aria-hidden />
+                  <p className="shrink-0 max-w-[14rem] text-right font-mono text-[10px] uppercase tracking-[0.14em] text-white/40">
+                    Terrain réel — pas un tableau Excel partagé
+                  </p>
                 </div>
-              </figcaption>
-            </figure>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -256,19 +281,19 @@ export function LandingPage() {
       {/* Corridor régional */}
       <motion.section
         {...fadeUp}
-        className="relative z-10 border-y border-zinc-200/70 bg-zinc-100/70 py-14 dark:border-white/[0.05] dark:bg-black/30"
+        className="relative z-10 border-y border-zinc-200/60 bg-white py-16 dark:border-white/[0.05] dark:bg-[#060606] md:py-20"
       >
         <div className="mx-auto max-w-6xl px-6">
           <SectionEyebrow>Réseau régional</SectionEyebrow>
-          <p className="max-w-2xl font-[family-name:var(--font-display)] text-xl font-medium tracking-tight text-zinc-900 md:text-2xl dark:text-white">
-            Des corridors urbains aux liaisons inter-capitales — une plateforme taillée pour la logistique en Afrique de
+          <p className="max-w-2xl font-[family-name:var(--font-display)] text-xl font-semibold leading-snug tracking-tight text-zinc-900 md:text-[1.35rem] dark:text-white">
+            Des corridors urbains aux liaisons inter-capitales — une plateforme pensée pour la logistique en Afrique de
             l&apos;Ouest.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-2.5">
             {['Dakar', 'Abidjan', 'Bamako', 'Ouagadougou', 'Lomé', 'Cotonou'].map((city) => (
               <span
                 key={city}
-                className="rounded-full border border-zinc-200/90 bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] text-zinc-600 dark:border-white/[0.08] dark:bg-white/[0.03] dark:text-zinc-400"
+                className="rounded-md border border-zinc-200/80 bg-zinc-50/80 px-3.5 py-1.5 text-sm font-medium text-zinc-700 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-zinc-300"
               >
                 {city}
               </span>
@@ -278,8 +303,8 @@ export function LandingPage() {
       </motion.section>
 
       {/* Ambiance terrain — fondus croisés + texte */}
-      <section className="relative z-10 overflow-hidden border-y border-zinc-200/70 bg-zinc-900 dark:border-white/[0.06]">
-        <div className="relative aspect-[21/9] min-h-[220px] w-full max-md:aspect-[16/11]">
+      <section className="relative z-10 overflow-hidden border-y border-zinc-200/50 bg-zinc-950 dark:border-white/[0.05]">
+        <div className="relative aspect-[21/9] min-h-[240px] w-full max-md:aspect-[16/11]">
           <img
             src={landingImages.beltA}
             alt={landingImageAlts.beltA}
@@ -298,19 +323,19 @@ export function LandingPage() {
             decoding="async"
             className="loban-xfade-b absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/30" />
-          <div className="relative z-[1] flex h-full flex-col justify-center px-6 py-12 md:px-14">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/35" />
+          <div className="relative z-[1] flex h-full flex-col justify-center px-6 py-14 md:px-14 md:py-16">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease }}
-              className="max-w-xl font-[family-name:var(--font-display)] text-2xl font-semibold leading-snug tracking-tight text-white md:text-3xl"
+              transition={{ duration: 0.65, ease }}
+              className="max-w-xl font-[family-name:var(--font-display)] text-2xl font-semibold leading-[1.25] tracking-tight text-white md:text-[1.75rem]"
             >
               La logistique, ce n’est pas que des chiffres : ce sont des routes, des quais, des équipes qui avancent
               ensemble.
             </motion.p>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/75">
+            <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/70">
               Loban s’inspire du terrain : des visages réels, des flux réels — pour une marketplace qui parle le même
               langage que vous.
             </p>
@@ -319,18 +344,18 @@ export function LandingPage() {
       </section>
 
       {/* Visages & récits courts (illustratif) */}
-      <section className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-28">
+      <section className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-28">
         <motion.div {...fadeUp}>
           <SectionEyebrow>Au quotidien</SectionEyebrow>
-          <h2 className="max-w-2xl font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl dark:text-white">
+          <h2 className="max-w-2xl font-[family-name:var(--font-display)] text-[clamp(1.625rem,3vw,2.25rem)] font-semibold tracking-tight text-zinc-900 dark:text-white">
             Des personnes derrière chaque envoi
           </h2>
-          <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-zinc-600 dark:text-zinc-500">
+          <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
             Clients qui cadencent leurs opérations, partenaires qui s’engagent sur un prix, professionnels qui assurent
             le dernier kilomètre : Loban met ces mondes en lien.
           </p>
         </motion.div>
-        <div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">
+        <div className="mt-12 grid gap-5 md:grid-cols-3 md:gap-6">
           <StoryCard
             src={landingImages.faceClient}
             alt={landingImageAlts.faceClient}
@@ -359,19 +384,19 @@ export function LandingPage() {
       </section>
 
       {/* Valeur */}
-      <section className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <section className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-28">
         <motion.div {...fadeUp}>
           <SectionEyebrow>Pourquoi Loban</SectionEyebrow>
-          <h2 className="max-w-xl font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl dark:text-white">
+          <h2 className="max-w-xl font-[family-name:var(--font-display)] text-[clamp(1.625rem,3vw,2.25rem)] font-semibold tracking-tight text-zinc-900 dark:text-white">
             Transparence des prix, exécution sans friction
           </h2>
-          <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-zinc-600 dark:text-zinc-500">
+          <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
             Une couche logicielle au-dessus de vos opérations : de la demande à la livraison, chaque étape est visible et
             actionnable.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-12 md:gap-6">
+        <div className="mt-14 grid gap-4 md:grid-cols-12 md:gap-5">
           {[
             {
               title: 'Offres comparables',
@@ -402,19 +427,19 @@ export function LandingPage() {
             return (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: i * 0.06, duration: 0.65, ease }}
-              className={`rounded-[2rem] border border-zinc-200/75 bg-white/90 p-2 dark:border-white/[0.06] dark:bg-white/[0.03] ${card.span}`}
+              transition={{ delay: i * 0.05, duration: 0.6, ease }}
+              className={`rounded-2xl border border-zinc-200/70 bg-white p-6 shadow-[0_1px_0_rgba(0,0,0,0.04)] md:p-8 dark:border-white/[0.07] dark:bg-zinc-950/60 dark:shadow-none ${card.span}`}
             >
-              <div className="h-full rounded-[calc(2rem-0.5rem)] border border-zinc-200/70 bg-white p-6 shadow-sm md:p-8 dark:border-white/[0.05] dark:bg-[#080808] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-                <Icon weight="light" className="h-7 w-7 text-emerald-400/90" />
-                <h3 className="mt-5 font-[family-name:var(--font-display)] text-lg font-semibold text-zinc-900 dark:text-white">
-                  {card.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-500">{card.body}</p>
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/[0.09] dark:bg-emerald-500/[0.12]">
+                <Icon weight="light" className="h-5 w-5 text-emerald-600 dark:text-emerald-400/95" />
               </div>
+              <h3 className="mt-5 font-[family-name:var(--font-display)] text-base font-semibold tracking-tight text-zinc-900 dark:text-white">
+                {card.title}
+              </h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{card.body}</p>
             </motion.div>
             );
           })}
@@ -422,11 +447,11 @@ export function LandingPage() {
       </section>
 
       {/* Parcours */}
-      <section className="relative z-10 border-t border-zinc-200/70 bg-zinc-100/50 py-24 dark:border-white/[0.05] dark:bg-[#060606] md:py-32">
+      <section className="relative z-10 border-t border-zinc-200/60 bg-[#f4f4f5] py-20 dark:border-white/[0.05] dark:bg-[#050505] md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div {...fadeUp}>
             <SectionEyebrow>Parcours</SectionEyebrow>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl dark:text-white">
+            <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.625rem,3vw,2.25rem)] font-semibold tracking-tight text-zinc-900 dark:text-white">
               Deux espaces, une même fluidité
             </h2>
           </motion.div>
@@ -434,9 +459,9 @@ export function LandingPage() {
           <div className="mt-16 grid gap-10 md:grid-cols-2 md:gap-14">
             <motion.div
               {...fadeUp}
-              className="rounded-[2rem] border border-zinc-200/75 bg-white/90 p-2 dark:border-white/[0.06] dark:bg-white/[0.02]"
+              className="overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-[0_1px_0_rgba(0,0,0,0.04)] dark:border-white/[0.07] dark:bg-zinc-950/40 dark:shadow-none"
             >
-              <div className="overflow-hidden rounded-[calc(2rem-0.5rem)] border border-zinc-200/70 bg-white dark:border-white/[0.06] dark:bg-[#0a0a0a]">
+              <div className="overflow-hidden bg-white dark:bg-[#0a0a0a]">
                 <div className="relative aspect-[2/1] w-full max-md:aspect-[16/10]">
                   <img
                     src={landingImages.parcoursClient}
@@ -476,10 +501,10 @@ export function LandingPage() {
               initial={fadeUp.initial}
               whileInView={fadeUp.whileInView}
               viewport={fadeUp.viewport}
-              transition={{ duration: 0.75, ease, delay: 0.1 }}
-              className="rounded-[2rem] border border-zinc-200/75 bg-white/90 p-2 dark:border-white/[0.06] dark:bg-white/[0.02]"
+              transition={{ duration: 0.65, ease, delay: 0.08 }}
+              className="overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-[0_1px_0_rgba(0,0,0,0.04)] dark:border-white/[0.07] dark:bg-zinc-950/40 dark:shadow-none"
             >
-              <div className="overflow-hidden rounded-[calc(2rem-0.5rem)] border border-zinc-200/70 bg-white dark:border-white/[0.06] dark:bg-[#0a0a0a]">
+              <div className="overflow-hidden bg-white dark:bg-[#0a0a0a]">
                 <div className="relative aspect-[2/1] w-full max-md:aspect-[16/10]">
                   <img
                     src={landingImages.parcoursTransporter}
@@ -521,54 +546,58 @@ export function LandingPage() {
       </section>
 
       {/* Confiance */}
-      <motion.section {...fadeUp} className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-28">
-        <div className="rounded-[2rem] border border-emerald-500/25 bg-gradient-to-br from-emerald-500/[0.07] via-transparent to-amber-500/[0.06] p-2 dark:border-emerald-500/20 dark:from-emerald-500/[0.09] dark:to-[#d4a574]/[0.06]">
-          <div className="rounded-[calc(2rem-0.5rem)] border border-zinc-200/70 bg-white px-8 py-12 shadow-sm md:flex md:items-center md:justify-between md:gap-12 md:px-14 md:py-16 dark:border-white/[0.06] dark:bg-[#070707] dark:shadow-none">
-            <div className="max-w-xl">
-              <Handshake weight="light" className="h-8 w-8 text-emerald-400" />
-              <h2 className="mt-6 font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-zinc-900 md:text-3xl dark:text-white">
+      <motion.section {...fadeUp} className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div className="overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-[0_1px_0_rgba(0,0,0,0.04)] md:flex md:items-stretch dark:border-white/[0.07] dark:bg-zinc-950/50 dark:shadow-none">
+          <div className="flex-1 border-b border-zinc-100 px-8 py-12 md:border-b-0 md:border-r md:px-14 md:py-16 dark:border-white/[0.06]">
+            <div className="max-w-xl md:max-w-[28rem]">
+              <Handshake weight="light" className="h-7 w-7 text-emerald-600 dark:text-emerald-400/90" />
+              <h2 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold leading-snug tracking-tight text-zinc-900 dark:text-white">
                 Une marketplace qui aligne intérêts clients et transporteurs
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-500">
+              <p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Loban réduit les frictions commerciales : moins d’incertitude sur le prix, plus de visibilité sur
                 l’exécution. Idéal pour les équipes qui veulent scaler sans sacrifier la qualité de service.
               </p>
             </div>
-            <div className="mt-10 grid shrink-0 grid-cols-2 gap-8 md:mt-0 md:gap-12">
-              <div>
-                <p className="font-[family-name:var(--font-display)] text-4xl font-semibold tabular-nums text-zinc-900 md:text-5xl dark:text-white">
-                  24h
-                </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-zinc-600 dark:text-zinc-500">fenêtre type</p>
-              </div>
-              <div>
-                <p className="font-[family-name:var(--font-display)] text-4xl font-semibold tabular-nums text-zinc-900 md:text-5xl dark:text-white">
-                  100%
-                </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-zinc-600 dark:text-zinc-500">parcours traçable</p>
-              </div>
+          </div>
+          <div className="grid shrink-0 grid-cols-2 content-center gap-8 border-t border-zinc-100 bg-zinc-50/90 px-8 py-10 sm:min-w-[280px] md:border-t-0 md:border-l md:px-12 md:py-16 dark:border-white/[0.06] dark:bg-white/[0.03]">
+            <div>
+              <p className="font-[family-name:var(--font-display)] text-3xl font-semibold tabular-nums tracking-tight text-zinc-900 md:text-4xl dark:text-white">
+                24h
+              </p>
+              <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-500">
+                fenêtre type
+              </p>
+            </div>
+            <div>
+              <p className="font-[family-name:var(--font-display)] text-3xl font-semibold tabular-nums tracking-tight text-zinc-900 md:text-4xl dark:text-white">
+                100%
+              </p>
+              <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-500">
+                parcours traçable
+              </p>
             </div>
           </div>
         </div>
       </motion.section>
 
       {/* Carte conceptuelle */}
-      <section className="relative z-10 border-t border-zinc-200/70 py-24 dark:border-white/[0.05] md:py-28">
+      <section className="relative z-10 border-t border-zinc-200/60 py-20 dark:border-white/[0.05] md:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div {...fadeUp} className="md:flex md:items-end md:justify-between md:gap-12">
             <div>
               <SectionEyebrow>Couverture</SectionEyebrow>
-              <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl dark:text-white">
+              <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.625rem,3vw,2.25rem)] font-semibold tracking-tight text-zinc-900 dark:text-white">
                 Routage & zones
               </h2>
-              <p className="mt-4 max-w-lg text-sm leading-relaxed text-zinc-600 dark:text-zinc-500">
+              <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Décrivez enlèvement et destination avec précision : Loban structure la demande pour que les transporteurs
                 répondent avec des offres comparables.
               </p>
             </div>
             <Link
               to="/register"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 transition-colors hover:text-emerald-300 md:mt-0"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300 md:mt-0"
             >
               Configurer mon profil
               <ArrowRight weight="light" className="h-4 w-4" />
@@ -577,9 +606,9 @@ export function LandingPage() {
 
           <motion.div
             {...fadeUp}
-            className="mt-14 rounded-[2rem] border border-zinc-200/75 bg-white/90 p-2 dark:border-white/[0.06] dark:bg-white/[0.03]"
+            className="mt-12 overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-[0_1px_0_rgba(0,0,0,0.04)] dark:border-white/[0.07] dark:bg-zinc-950/50 dark:shadow-none"
           >
-            <div className="grid overflow-hidden rounded-[calc(2rem-0.5rem)] border border-zinc-200/70 bg-white shadow-sm dark:border-white/[0.05] dark:bg-[#080808] dark:shadow-none md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+            <div className="grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
               <div className="relative min-h-[220px]">
                 <img
                   src={landingImages.coverage}
@@ -592,12 +621,14 @@ export function LandingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent md:from-black/30" />
               </div>
-              <div className="relative p-10 md:p-12">
-                <MapPinLine weight="light" className="h-10 w-10 text-emerald-500/80" />
-                <p className="mt-6 max-w-md font-[family-name:var(--font-display)] text-xl font-medium text-zinc-900 dark:text-white">
+              <div className="relative border-t border-zinc-100 p-10 md:border-t-0 md:border-l md:p-12 dark:border-white/[0.06]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-500/[0.09] dark:bg-emerald-500/[0.12]">
+                  <MapPinLine weight="light" className="h-6 w-6 text-emerald-600 dark:text-emerald-400/90" />
+                </div>
+                <p className="mt-6 max-w-md font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-zinc-900 dark:text-white">
                   Du premier mile au dernier kilomètre
                 </p>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-500">
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                   Centralisez les demandes, évitez les devis flous et gardez une trace claire de chaque envoi — sans
                   tableurs ni fils de mails perdus.
                 </p>
@@ -609,18 +640,18 @@ export function LandingPage() {
       </section>
 
       {/* CTA final */}
-      <motion.section {...fadeUp} className="relative z-10 mx-auto max-w-6xl px-6 pb-24 pt-8 md:pb-32">
-        <div className="rounded-[2rem] border border-zinc-200/80 bg-gradient-to-r from-white to-emerald-50 p-10 text-center shadow-sm md:p-14 dark:border-white/[0.08] dark:from-white/[0.06] dark:to-emerald-500/[0.08] dark:shadow-none">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-zinc-900 md:text-3xl dark:text-white">
+      <motion.section {...fadeUp} className="relative z-10 mx-auto max-w-6xl px-6 pb-20 pt-6 md:pb-28">
+        <div className="rounded-2xl border border-zinc-200/70 bg-white px-8 py-12 text-center shadow-[0_1px_0_rgba(0,0,0,0.04)] md:px-14 md:py-16 dark:border-white/[0.08] dark:bg-zinc-950/60 dark:shadow-none">
+          <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.375rem,2.8vw,1.875rem)] font-semibold tracking-tight text-zinc-900 dark:text-white">
             Prêt à orchestrer vos transports ?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
             Créez un compte en quelques secondes — client ou transporteur — et entrez dans l&apos;espace Loban.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(5,150,105,0.35)] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-emerald-500 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_28px_rgba(5,150,105,0.3)] transition-all duration-300 hover:bg-emerald-500 hover:shadow-[0_12px_36px_rgba(5,150,105,0.35)] active:scale-[0.98]"
             >
               S&apos;inscrire
               <ArrowRight weight="light" className="h-4 w-4" />
@@ -636,15 +667,15 @@ export function LandingPage() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-zinc-200/80 bg-zinc-100/90 py-12 dark:border-white/[0.06] dark:bg-black/50">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-10 px-6 md:flex-row md:items-center">
+      <footer className="relative z-10 border-t border-zinc-200/70 bg-zinc-100 py-14 dark:border-white/[0.06] dark:bg-[#080808]">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-12 px-6 md:flex-row md:items-start md:gap-16">
           <div>
             <p className="font-[family-name:var(--font-display)] text-lg font-semibold text-zinc-900 dark:text-white">
               Loban
             </p>
             <p className="mt-2 max-w-xs text-xs leading-relaxed text-zinc-600 dark:text-zinc-600">
-              Marketplace logistique — mise en relation clients et transporteurs avec offres comparables et suivi de
-              livraison.
+              La mise en relation entre expéditeurs et transporteurs : offres comparables et livraisons suivies, sans
+              perdre le fil.
             </p>
             <p className="mt-3 max-w-xs text-[10px] leading-relaxed text-zinc-500 dark:text-zinc-600">
               Photographies illustratives — crédits aux contributeurs Unsplash.
