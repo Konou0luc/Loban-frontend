@@ -12,6 +12,7 @@ import {
   Truck,
   UsersThree,
 } from '@phosphor-icons/react';
+import { useAuth } from '../context/AuthContext';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { landingImageAlts, landingImages } from '../data/landingMedia';
 
@@ -81,6 +82,7 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 }
 
 export function LandingPage() {
+  const { user, logout } = useAuth();
   const heroRef = useRef<HTMLElement>(null);
   const [headerSolid, setHeaderSolid] = useState(false);
 
@@ -109,6 +111,10 @@ export function LandingPage() {
 
   const themeToggleHero =
     '!border-white/25 !bg-white/10 !text-white hover:!border-white/40 [&_span]:!text-white/95';
+  const dashboardPath =
+    user?.role === 'TRANSPORTER' && user.transporterProfileComplete === false
+      ? '/onboarding/transporter'
+      : '/dashboard';
 
   return (
     <div className="relative overflow-hidden bg-[#fafafa] text-zinc-900 dark:bg-[#030303] dark:text-zinc-100">
@@ -138,12 +144,29 @@ export function LandingPage() {
           </span>
           <div className="flex flex-wrap items-center gap-3">
             <ThemeToggle className={headerSolid ? '' : themeToggleHero} />
-            <Link to="/login" className={headerSolid ? navLinkSolid : navLinkOnHero}>
-              Connexion
-            </Link>
-            <Link to="/register" className={headerSolid ? registerSolid : registerOnHero}>
-              Créer un compte
-            </Link>
+            {user ? (
+              <>
+                <Link to={dashboardPath} className={headerSolid ? navLinkSolid : navLinkOnHero}>
+                  Mon espace
+                </Link>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className={headerSolid ? registerSolid : registerOnHero}
+                >
+                  Déconnexion
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className={headerSolid ? navLinkSolid : navLinkOnHero}>
+                  Connexion
+                </Link>
+                <Link to="/register" className={headerSolid ? registerSolid : registerOnHero}>
+                  Créer un compte
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -205,20 +228,30 @@ export function LandingPage() {
               className="mt-11 flex flex-wrap items-center gap-4"
             >
               <Link
-                to="/register"
+                to={user ? dashboardPath : '/register'}
                 className="group inline-flex items-center gap-3 rounded-full bg-emerald-600 py-3 pl-7 pr-2 text-sm font-semibold text-white shadow-[0_12px_40px_-8px_rgba(5,150,105,0.45)] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-emerald-500 active:scale-[0.98]"
               >
-                Ouvrir mon espace
+                {user ? 'Aller à mon espace' : 'Ouvrir mon espace'}
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black/20 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px">
                   <ArrowRight weight="light" className="h-4 w-4" />
                 </span>
               </Link>
-              <Link
-                to="/login"
-                className="rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/30 hover:bg-white/[0.07]"
-              >
-                J’ai déjà un compte
-              </Link>
+              {user ? (
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/30 hover:bg-white/[0.07]"
+                >
+                  Déconnexion
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="rounded-full border border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/30 hover:bg-white/[0.07]"
+                >
+                  J’ai déjà un compte
+                </Link>
+              )}
             </motion.div>
 
             <motion.div
